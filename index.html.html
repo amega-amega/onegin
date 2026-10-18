@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Евгений Онегин — буктрейлер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Marck+Script&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#10131c;--gold:#e0b25a;--paper:#eadfc8;--mute:#9aa3b6;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 clamp(20px,2.1vw,23px)/1.6 "Cormorant Garamond",Georgia,serif}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+#film{position:fixed;inset:0;z-index:0;background:var(--ink)}
+#film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+#film video.on{opacity:1}
+#sp{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle 36vmax at var(--x,50%) var(--y,38%),rgba(10,12,18,.1),rgba(10,12,18,.6) 55%,rgba(10,12,18,.9))}
+#em{position:fixed;inset:0;z-index:2;pointer-events:none}
+body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+#pg{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:70}
+main{position:relative;z-index:3}
+.hero{min-height:100svh;display:grid;align-content:end;padding:clamp(24px,6vw,88px)}
+h1{margin:0;font:italic 600 clamp(58px,13vw,176px)/.9 "Cormorant Garamond",Georgia,serif;text-shadow:0 4px 50px rgba(0,0,0,.7)}
+.w{display:inline-block;white-space:nowrap}
+.w i{display:inline-block;font-style:inherit;animation:rise 1.2s var(--d) cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(.5em) rotate(5deg);filter:blur(12px)}}
+.hw{font:400 clamp(26px,4.2vw,48px)/1.3 "Marck Script",cursive;color:var(--gold);margin:.5em 0 .5em;clip-path:inset(0 100% 0 0);animation:wr 2.6s 1.4s cubic-bezier(.5,0,.3,1) forwards}
+@keyframes wr{to{clip-path:inset(0)}}
+.sub{margin:0 0 1.6em;max-width:34ch}
+.btn{display:inline-flex;align-items:center;gap:.7em;background:var(--gold);color:var(--ink);border:0;border-radius:999px;padding:.7em 1.5em .7em 1.2em;font-weight:600;font-size:1.05em;box-shadow:0 10px 40px -10px rgba(224,178,90,.6);transition:transform .15s,background .2s}
+.btn:hover{background:#f0c673}
+.btn i{width:0;height:0;border-left:.8em solid var(--ink);border-top:.5em solid transparent;border-bottom:.5em solid transparent}
+.dur{margin:.9em 0 0;color:var(--mute);font-size:.8em}
+.ln{width:2px;height:70px;margin:2.2em 0 0;background:linear-gradient(var(--gold),transparent);transform-origin:top;animation:gr 2.4s ease-in-out infinite}
+@keyframes gr{0%{transform:scaleY(0)}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+.c{min-height:100svh;display:flex;align-items:center;padding:12vh clamp(20px,6vw,90px)}
+.c:nth-child(even){justify-content:flex-end;text-align:right}
+.in{position:relative;max-width:640px;padding:clamp(20px,3vw,44px);background:linear-gradient(90deg,rgba(10,12,18,.8),rgba(10,12,18,0))}
+.c:nth-child(even) .in{background:linear-gradient(270deg,rgba(10,12,18,.8),rgba(10,12,18,0))}
+.num{position:absolute;top:-.5em;left:0;font:italic 600 clamp(120px,24vw,300px)/1 "Cormorant Garamond",Georgia,serif;color:transparent;-webkit-text-stroke:1.5px rgba(224,178,90,.6);opacity:.25;transition:opacity .8s;pointer-events:none;will-change:transform}
+.c:nth-child(even) .num{left:auto;right:0}
+.c.on .num{opacity:1}
+.in>:not(.num){position:relative}
+.c h2{margin:0 0 .2em;font:italic 600 clamp(40px,6vw,76px)/1 "Cormorant Garamond",Georgia,serif;opacity:0;transform:translateY(26px);transition:opacity .8s .1s,transform .8s .1s}
+.q{min-height:3.9em;margin:0 0 .6em;font:400 clamp(24px,3vw,34px)/1.35 "Marck Script",cursive;color:var(--gold)}
+.c.on .q::after{content:"";display:inline-block;width:2px;height:1em;margin-left:3px;vertical-align:-.12em;background:var(--gold);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.tx{margin:0;opacity:0;transform:translateY(26px);transition:opacity .8s .5s,transform .8s .5s}
+.c.seen h2,.c.seen .tx{opacity:1;transform:none}
+#rail{position:fixed;z-index:60;right:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px}
+#rail button{display:grid;place-items:center;width:34px;height:26px;border:0;background:none;color:var(--paper);font:italic 600 15px "Cormorant Garamond",serif;opacity:.45;transition:.25s}
+#rail button::before{content:"";position:absolute;right:42px;width:0}
+#rail button.a{opacity:1;color:var(--gold);font-size:22px;transform:scale(1.15)}
+#rail button:hover{opacity:1}
+.solid{background:rgba(14,17,26,.9);backdrop-filter:blur(8px);padding:clamp(64px,10vw,130px) clamp(20px,6vw,90px)}
+.solid h2{margin:0 0 .6em;font:italic 600 clamp(36px,5vw,64px)/1.05 "Cormorant Garamond",Georgia,serif}
+#hb{display:flex;gap:.6em;flex-wrap:wrap}
+#hb button{background:none;color:var(--paper);border:1px solid rgba(234,223,200,.35);border-radius:999px;padding:.3em 1.1em;transition:.25s}
+#hb button.a{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+#ht{max-width:38em;min-height:12em;margin:1.2em 0 0;font-size:1.1em}
+#ht em{display:block;margin-bottom:.3em;font:400 1.5em/1.2 "Marck Script",cursive;color:var(--gold)}
+.cred{position:relative;z-index:3;height:92svh;overflow:hidden;background:rgba(7,8,13,.95);text-align:center}
+.cr{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);padding:0 20px}
+.cr p{margin:0}
+.cr .k{margin-top:1.6em;color:var(--mute);font-style:italic}
+.cr .big{font:italic 600 clamp(38px,6vw,76px)/1.1 "Cormorant Garamond",Georgia,serif}
+.cr .nm{font:italic 600 clamp(44px,7vw,92px)/1.1 "Cormorant Garamond",Georgia,serif;color:var(--gold)}
+.cred.go .cr{animation:roll 9s cubic-bezier(.22,.6,.2,1) both}
+@keyframes roll{from{transform:translateY(46svh);opacity:0}20%{opacity:1}to{transform:translateY(-50%)}}
+@media(prefers-reduced-motion:reduce){.cred.go .cr{animation:none}}
+#ht.s{animation:fi .6s both}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.fin{text-align:center}
+.fin p{margin:0 auto 1em;max-width:22em;font-size:clamp(28px,4vw,46px);line-height:1.3}
+.fin .q{min-height:0;font-size:clamp(26px,3.6vw,42px);margin-bottom:1.4em}
+footer{position:relative;z-index:3;background:rgba(14,17,26,.95);padding:24px;text-align:center;color:var(--mute);font-size:.8em}
+.th{position:fixed;inset:0;z-index:80;background:#07080d}
+.th[hidden]{display:none}
+.th video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.x{position:absolute;z-index:2;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:20px}
+@media(max-width:760px){.c,.c:nth-child(even){justify-content:flex-start;text-align:left}.c:nth-child(even) .in{background:linear-gradient(90deg,rgba(10,12,18,.8),rgba(10,12,18,0))}.c:nth-child(even) .num{left:0;right:auto}#rail{right:0}#rail button{width:28px}}
+@media(prefers-reduced-motion:reduce){.w i,.hw,.ln{animation:none;clip-path:none}.c h2,.tx{opacity:1;transform:none;transition:none}}
+</style></head><body>
+<div id="film"></div>
+<div id="sp"></div><canvas id="em"></canvas><div id="pg"></div><nav id="rail" aria-label="Главы"></nav>
+<main>
+<header class="hero" id="hero">
+<h1 id="ti" aria-label="Евгений Онегин">Евгений Онегин</h1>
+<p class="hw">«Я к вам пишу — чего же боле?»</p>
+<p class="sub">Роман в стихах А. С. Пушкина о человеке, который понял всё слишком поздно.</p>
+<div><button class="btn" id="play"><i></i>Смотреть буктрейлер</button><p class="dur">1 минута 2 секунды · включите звук</p></div>
+<div class="ln" aria-hidden="true"></div>
+</header>
+<div id="ch"></div>
+<section class="solid"><h2>Четыре героя</h2><div id="hb"></div><p id="ht"></p></section>
+<section class="solid fin"><p>Он умён, богат и свободен — и всё равно несчастен.</p><p class="q">«Блажен, кто смолоду был молод, блажен, кто вовремя созрел»</p><button class="btn" id="again"><i></i>Смотреть буктрейлер</button></section>
+<section class="cred" id="cred"><div class="cr"><p class="k">Буктрейлер по роману А. С. Пушкина</p><p class="big">«Евгений Онегин»</p><p class="k">Озвучка и видео</p><p class="nm">Даниев Жангир</p><p class="k">Сайт и всё остальное</p><p class="nm">Мұқан Ануар</p></div></section>
+</main>
+<footer>Буктрейлер по роману А. С. Пушкина «Евгений Онегин». Русская литература, 10 класс.</footer>
+<div class="th" id="th" hidden role="dialog" aria-label="Буктрейлер"><button class="x" id="x" aria-label="Закрыть">✕</button><video id="tv" controls playsinline></video></div>
+<script>
+const CLIPS=["/_blob/4df442eb7935ddc126d34ed4118eb748","/_blob/225cdf08c6637affbb149ac62fdf0f75","/_blob/ac6f07f0427734888d2abf8daaf32e58","/_blob/e55c4b887a9262ef122165a9580fd489","/_blob/4760df102ae5c405360e99ee970e019a","/_blob/5cc62429f62dbd2836b304243cd346b7","/_blob/4a378541d78f797b466d2bf7735200a4","/_blob/7a4dfb83e9bfe1c977656d85df1e91b6"],TR="/_blob/907b6a9341f82b387797306923b44855";
+const R=["I","II","III","IV","V","VI","VII","VIII"];
+const D=[["Хандра","«Мой дядя самых честных правил»","Петербург, балы, театры. Онегин блестящ — и смертельно скучает. Известие о болезни дяди увозит его в деревню."],
+["Поэт","«Волна и камень, стихи и проза, лёд и пламень не столь различны меж собой»","В деревне Онегин сходится с юным мечтателем Ленским. Они совсем разные — и всё же становятся друзьями."],
+["Письмо","«Я к вам пишу — чего же боле?»","Татьяна влюбляется с первого взгляда и ночью, при свече, первой пишет Онегину о любви."],
+["Отповедь","«Учитесь властвовать собою; не всякий вас, как я, поймёт»","В саду Онегин отвечает честно и холодно. Он уверен, что поступает благородно."],
+["Сон","«Татьяна верила преданьям простонародной старины»","Святки, гадания, страшный сон — а потом именины, на которых начинается ссора друзей."],
+["Дуэль","«Враги! Давно ли друг от друга их жажда крови отвела?»","Вызов принят. Зимним утром вчерашние друзья становятся врагами, и назад пути уже нет."],
+["Дорога","«Москва… как много в этом звуке для сердца русского слилось!»","Татьяну везут в Москву и выдают замуж. А Онегин, оставив деревню, не находит себе места."],
+["Поздно","«Но я другому отдана; я буду век ему верна»","Спустя годы Онегин встречает Татьяну на петербургском балу — и понимает, что любит. Теперь отказывает она."]];
+const H={"Онегин":["Первый лишний человек","Молодой петербургский дворянин, воспитанный на французский лад. Он блистал в свете, но быстро пресытился балами, театрами и романами — так начинается его «хандра». Получив в наследство дядину усадьбу, он надеется развеяться в деревне, но и там ему скучно. Онегин умён и наблюдателен, но холоден и эгоистичен: он отвергает любовь Татьяны, дорожа свободой, а на дуэли убивает друга, потому что боится осуждения света. Лишь спустя годы он понимает, что сам разрушил своё счастье."],"Татьяна":["Русская душою","Дочь деревенской помещицы, задумчивая и молчаливая, она любит романы, верит приметам и гаданиям. Полюбив Онегина, она первой признаётся ему в любви — для её времени и круга поступок почти немыслимый. После отказа она не ломается, а взрослеет: выходит замуж, переезжает в Петербург и становится блестящей светской дамой. Но внутри остаётся прежней. Когда Онегин наконец признаётся ей, она отвечает, что любит его, но будет верна мужу. Для Пушкина это образец душевной силы и верности долгу."],"Ленский":["Поклонник Канта и поэт","Восемнадцатилетний помещик, вернувшийся из Германии с головой, полной возвышенных идей. Он пишет элегии о любви и смерти, с детства влюблён в Ольгу и верит, что дружба и любовь вечны. Увидев, как Онегин танцует с Ольгой на именинах, он вызывает друга на дуэль — из ревности и юношеской гордости. Погибает совсем молодым. Пушкин с горечью замечает, что из него мог выйти великий поэт, а мог и обыкновенный помещик, — но узнать этого уже нельзя."],"Ольга":["Всегда как утро весела","Младшая дочь Лариных, румяная и жизнерадостная красавица. Пушкин рисует её как типичную героиню романов, которая ему самому давно наскучила. Ленский видит в ней идеал и посвящает ей стихи, а Онегин замечает, что в её лице нет жизни, — она похожа на «глупую луну». Ольга не понимает глубины чувств жениха: она кокетничает с Онегиным на именинах, и это становится поводом для дуэли. Горюет о Ленском недолго и вскоре выходит замуж за улана."]};const H0={"Онегин":"Петербургский денди: умный, скучающий, холодный. Не умеет любить — а когда научился, уже поздно.","Татьяна":"Мечтательная и цельная. Первой говорит о любви и до конца остаётся верна своему слову.","Ленский":"Юный поэт-романтик. Верит в дружбу и любовь — и платит за это жизнью.","Ольга":"Весёлая и беззаботная. Для Ленского она идеал, а Онегин видит в ней лишь красивое лицо."};
+const $=s=>document.querySelector(s),calm=matchMedia("(prefers-reduced-motion:reduce)").matches,root=document.documentElement;
+const vs=CLIPS.map((u,i)=>{const e=document.createElement("video");e.muted=true;e.loop=true;e.playsInline=true;e.setAttribute("playsinline","");e.setAttribute("aria-hidden","true");e.preload=i<2?"auto":"metadata";e.src=u;$("#film").append(e);return e});
+let vi=-1;
+const f={pause(){vs[vi]&&vs[vi].pause()},play(){return vs[vi]?vs[vi].play():Promise.resolve()}};
+function show(v){if(v===vi)return;const p=vs[vi],n=vs[v];vi=v;n.preload="auto";if(vs[v+1])vs[v+1].preload="auto";n.currentTime=0;n.play().catch(()=>{});n.classList.add("on");if(p){p.classList.remove("on");setTimeout(()=>{if(vs[vi]!==p)p.pause()},900)}if(calm)setTimeout(()=>n.pause(),300)}
+let k=0;$("#ti").innerHTML=["Евгений","Онегин"].map(w=>'<span class="w">'+[...w].map(c=>`<i style="--d:${k++*55}ms">${c}</i>`).join("")+"</span>").join(" ");
+$("#ch").innerHTML=D.map((d,i)=>`<section class="c" data-i="${i}" id="c${i}"><div class="in"><span class="num" aria-hidden="true">${R[i]}</span><h2>${d[0]}</h2><p class="q" data-t="${d[1]}"></p><p class="tx">${d[2]}</p></div></section>`).join("");
+const secs=[...document.querySelectorAll(".c")];
+$("#rail").innerHTML=R.map((r,i)=>`<button aria-label="Глава ${r}">${r}</button>`).join("");
+const dots=[...document.querySelectorAll("#rail button")];
+dots.forEach((d,i)=>d.onclick=()=>secs[i].scrollIntoView({behavior:"smooth",block:"center"}));
+let cur=-2,tm,dbT;
+function typeQ(i){clearInterval(tm);const q=secs[i].querySelector(".q"),t=q.dataset.t;if(calm||q.dataset.d){q.textContent=t;return}q.dataset.d=1;q.textContent="";let n=0;tm=setInterval(()=>{q.textContent=t.slice(0,++n);if(n>=t.length)clearInterval(tm)},34)}
+function set(v,ui){const id=ui?v:-1;if(id===cur)return;cur=id;
+  clearTimeout(dbT);dbT=setTimeout(()=>show(v),ui?140:0);
+  dots.forEach((d,j)=>d.classList.toggle("a",ui&&j===v));secs.forEach((s,j)=>s.classList.toggle("on",ui&&j===v));if(ui){secs[v].classList.add("seen");typeQ(v)}}
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target.dataset.i;i===undefined?set(2,false):set(+i,true)}}),{rootMargin:"-50% 0px -50% 0px"}).observe($("#hero"));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(+e.target.dataset.i,true)}),{rootMargin:"-50% 0px -50% 0px"});secs.forEach(s=>io.observe(s));
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("seen")}),{rootMargin:"-10% 0px -10% 0px"});secs.forEach(s=>io2.observe(s));
+new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("go",e.isIntersecting)),{threshold:.55}).observe($("#cred"));
+show(2);setInterval(()=>{const c=vs[vi];if(c&&c.paused&&!calm&&!document.hidden&&th.hidden)c.play().catch(()=>{})},1500);
+
+addEventListener("pointermove",e=>{root.style.setProperty("--x",e.clientX+"px");root.style.setProperty("--y",e.clientY+"px")},{passive:true});
+addEventListener("scroll",()=>{$("#pg").style.width=scrollY/(root.scrollHeight-innerHeight)*100+"%";if(!calm)secs.forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)s.querySelector(".num").style.transform=`translateY(${r.top*.18}px)`})},{passive:true});
+document.querySelectorAll(".btn").forEach(b=>{b.onpointermove=e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.3}px)`};b.onpointerleave=()=>b.style.transform=""});
+const th=$("#th"),tv=$("#tv");
+function open(){th.hidden=false;f.pause();tv.src=TR;tv.currentTime=0;tv.play().catch(()=>{});document.body.style.overflow="hidden"}
+function shut(){tv.pause();th.hidden=true;if(!calm)f.play().catch(()=>{});document.body.style.overflow=""}
+$("#play").onclick=$("#again").onclick=open;$("#x").onclick=shut;
+addEventListener("keydown",e=>{if(!th.hidden){if(e.key==="Escape")shut();return}
+  if(e.key==="ArrowRight"||e.key==="ArrowLeft"){const j=Math.max(0,Math.min(7,(cur<0?-1:cur)+(e.key==="ArrowRight"?1:-1)));secs[j].scrollIntoView({behavior:"smooth",block:"center"})}});
+const hb=$("#hb"),ht=$("#ht");
+Object.keys(H).forEach((n,i)=>{const b=document.createElement("button");b.textContent=n;b.onclick=()=>{hb.querySelectorAll("button").forEach(x=>x.classList.toggle("a",x===b));ht.classList.remove("s");void ht.offsetWidth;ht.innerHTML="<em>"+H[n][0]+"</em>"+H[n][1];ht.classList.add("s")};hb.append(b);if(!i)b.click()});
+if(!calm){const cv=$("#em"),cx=cv.getContext("2d");let W,Hh,P=[];const rs=()=>{W=cv.width=innerWidth;Hh=cv.height=innerHeight};rs();addEventListener("resize",rs);
+for(let i=0;i<48;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+.4,v:Math.random()*.5+.15,a:Math.random()*6});
+(function fr(){cx.clearRect(0,0,W,Hh);for(const p of P){p.y-=p.v;p.a+=.02;p.x+=Math.sin(p.a)*.3;if(p.y<-5){p.y=Hh+5;p.x=Math.random()*W}cx.fillStyle=`rgba(255,${180+Math.sin(p.a)*40|0},90,${.25+Math.sin(p.a*2)*.2})`;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()}requestAnimationFrame(fr)})()}
+</script>
+</body></html>
